@@ -1,0 +1,5 @@
+In this code, we create a WalkingReminder class with a nested WalkingReminderTask class that extends TimerTask. 
+The WalkingReminderTask defines the task to be executed at regular intervals.
+It checks the current time and compares it with the start and end times specified (8:00 AM to 6:00 PM).
+If the current time is within this range, it displays a reminder message to take a walk.
+To customize the program further, we can modify the values of START_TIME and END_TIME to suit Sunita's preferred walking hours.
