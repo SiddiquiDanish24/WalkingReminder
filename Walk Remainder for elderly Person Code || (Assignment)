@@ -1,0 +1,33 @@
+
+
+import java.time.LocalTime;
+import java.util.Timer;
+import java.util.TimerTask;
+
+public class WalkingReminder {
+    private static final long REMINDER_INTERVAL_MS = 30 * 60 * 1000; // Remind every 30 minutes
+    //"private static final" will be considered as constant and the constant can be accessed within this class only.
+    private static final LocalTime START_TIME = LocalTime.of(8, 0); // Start reminding from 8:00 AM
+    private static final LocalTime END_TIME = LocalTime.of(18, 0); // Stop reminding at 6:00 PM
+
+    public static void main(String[] args) {
+        Timer t = new Timer();
+        t.schedule(new WalkingReminderTask(), 0, REMINDER_INTERVAL_MS);
+    }
+
+    static class WalkingReminderTask extends TimerTask {
+        @Override
+        public void run() {
+            LocalTime currentTime = LocalTime.now();
+            if (currentTime.isAfter(START_TIME) && currentTime.isBefore(END_TIME)) { // condition
+                System.out.println("Reminder: It's time to take a walk!");
+                // You can add additional actions here, such as displaying a message box .
+            }
+            else {
+                System.out.println(" Have a Healthy Day");
+            }
+        }
+    }
+}
+
+
